@@ -2,6 +2,7 @@ package com.example.connectchallengeutils.application;
 
 
 import com.example.connectchallengeutils.response.KeyResponse;
+import com.example.connectchallengeutils.response.PubKeyResponse;
 import com.example.connectchallengeutils.service.KeyPairService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
 import java.time.ZonedDateTime;
 import java.util.Base64;
@@ -27,9 +29,9 @@ public class ConnectChallengeController {
     @GetMapping(value = "keypair", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<KeyResponse> keyPair() throws NoSuchAlgorithmException {
 
-        var keyPair = keyPairService.generate();
-        var pubKey = Base64.getEncoder().encodeToString(keyPair.getPublic().getEncoded());
-        var privKey = Base64.getEncoder().encodeToString(keyPair.getPrivate().getEncoded());
+        KeyPair keyPair = keyPairService.generate();
+        String pubKey = Base64.getEncoder().encodeToString(keyPair.getPublic().getEncoded());
+        String privKey = Base64.getEncoder().encodeToString(keyPair.getPrivate().getEncoded());
 
         return ResponseEntity.ok(KeyResponse.builder()
                 .privateKey(pubKey)
@@ -39,13 +41,13 @@ public class ConnectChallengeController {
     }
 
     @GetMapping(value = "key", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<KeyResponse> key() throws NoSuchAlgorithmException {
+    public ResponseEntity<PubKeyResponse> key() throws NoSuchAlgorithmException {
 
-        var keyPair = keyPairService.generate();
-        var pubKey = Base64.getEncoder().encodeToString(keyPair.getPublic().getEncoded());
+        KeyPair keyPair = keyPairService.generate();
+        String pubKey = Base64.getEncoder().encodeToString(keyPair.getPublic().getEncoded());
 
-        return ResponseEntity.ok(KeyResponse.builder()
-                .privateKey(pubKey)
+        return ResponseEntity.ok(PubKeyResponse.builder()
+                .publicKey(pubKey)
                 .createdAt(ZonedDateTime.now())
                 .build());
     }
