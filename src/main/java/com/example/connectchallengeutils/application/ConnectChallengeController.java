@@ -30,8 +30,12 @@ public class ConnectChallengeController {
     public ResponseEntity<KeyResponse> keyPair() throws NoSuchAlgorithmException {
 
         KeyPair keyPair = keyPairService.generate();
-        String pubKey = Base64.getEncoder().encodeToString(keyPair.getPublic().getEncoded());
-        String privKey = Base64.getEncoder().encodeToString(keyPair.getPrivate().getEncoded());
+        String pubKey = base64(keyPair
+                .getPublic()
+                .getEncoded());
+        String privKey = base64(keyPair
+                .getPrivate()
+                .getEncoded());
 
         return ResponseEntity.ok(KeyResponse.builder()
                 .privateKey(privKey)
@@ -50,6 +54,10 @@ public class ConnectChallengeController {
                 .publicKey(pubKey)
                 .createdAt(ZonedDateTime.now())
                 .build());
+    }
+
+    private String base64(byte[] code) {
+        return Base64.getEncoder().encodeToString(code);
     }
 
 }
