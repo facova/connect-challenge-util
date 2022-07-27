@@ -34,8 +34,8 @@ public class ConnectChallengeController {
         String privKey = Base64.getEncoder().encodeToString(keyPair.getPrivate().getEncoded());
 
         return ResponseEntity.ok(KeyResponse.builder()
-                .privateKey(pubKey)
-                .publicKey(privKey)
+                .privateKey(privKey)
+                .publicKey(pubKey)
                 .createdAt(ZonedDateTime.now())
                 .build());
     }
