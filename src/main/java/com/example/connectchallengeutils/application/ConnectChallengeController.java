@@ -59,7 +59,7 @@ public class ConnectChallengeController {
     @GetMapping(value = "keys", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<PubKeyResponse> keys() {
 
-        String pubKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjmlIEpHV9ZIhFO2ZKHUqqnoTaaYypj8KxQZ50LSWQAx0ouYZm+ToLWId3oEEkapZsPEUeL0JZQbR/jRZZCVJFKHh6ChunFQBndxUDPSebx/296JA0Dj+8OyxWUbPBHCgoq3WepBqfbWrJ+3ae3mQ5qNMDuMQ8FjzoEp46eFFDI3yDyhNQq1bIJEvPoUHfxu+8MN18mdIPnSRbeDv1/pcb6bkigGeqSrSOzboQBUxY2GulxlkI4HN0cZScbNX3TGU6/z3Gw4BjLk1d6GpDAnwUu9c/i9/H8lkMmIi9Re3NpeK31DKxbzKPgtoaT5oXkJ3kXYBy4jAClwXtvwx90zh3QIDAQAB";
+        String pubKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwQR6g64OC7gWTc9WtNTgLIWhfts6eVk4mcO6nNx65JpcmRbyh4pEWgg6DNiyKP3+5U5uSu8OmvoPMCS681KbZKvh6QgVE6XXpJxfysWKWFAeFwmV3wYmzPzLCdWuuMVT5uPz1nQfAY2yXEzqwCrAEH328rjk3LClt2JreiaUAx9vw0JBqpAxaJjg6aRENddes21Ep2ak3f8Eqk9l5j7+Kpux/FMDI55exz+2BkB13Ons47H89UqALsmqRnEGPGaRgvoexwL4mPsT8s47NwaDoaEJADA85YzrbbnljJc3hKIu9yiXVCkQg6+13xEEmLDaNPPx94SNXZmcGK/TcLMgOQIDAQAB";
 
         return ResponseEntity.ok(PubKeyResponse.builder()
                 .publicKey(pubKey)
