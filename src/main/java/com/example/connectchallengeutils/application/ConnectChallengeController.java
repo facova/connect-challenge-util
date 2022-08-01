@@ -56,6 +56,17 @@ public class ConnectChallengeController {
                 .build());
     }
 
+    @GetMapping(value = "keys", produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<PubKeyResponse> key() {
+
+        var pubKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjmlIEpHV9ZIhFO2ZKHUqqnoTaaYypj8KxQZ50LSWQAx0ouYZm+ToLWId3oEEkapZsPEUeL0JZQbR/jRZZCVJFKHh6ChunFQBndxUDPSebx/296JA0Dj+8OyxWUbPBHCgoq3WepBqfbWrJ+3ae3mQ5qNMDuMQ8FjzoEp46eFFDI3yDyhNQq1bIJEvPoUHfxu+8MN18mdIPnSRbeDv1/pcb6bkigGeqSrSOzboQBUxY2GulxlkI4HN0cZScbNX3TGU6/z3Gw4BjLk1d6GpDAnwUu9c/i9/H8lkMmIi9Re3NpeK31DKxbzKPgtoaT5oXkJ3kXYBy4jAClwXtvwx90zh3QIDAQAB"
+
+        return ResponseEntity.ok(PubKeyResponse.builder()
+                .publicKey(pubKey)
+                .createdAt(ZonedDateTime.now())
+                .build());
+    }
+
     private String base64(byte[] code) {
         return Base64.getEncoder().encodeToString(code);
     }
