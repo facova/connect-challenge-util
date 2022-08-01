@@ -17,5 +17,5 @@ public class PubKeyResponse {
 
     String publicKey;
 
-    ZonedDateTime createdAt;
+    Long createdAt;
 }

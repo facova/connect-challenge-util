@@ -52,7 +52,7 @@ public class ConnectChallengeController {
 
         return ResponseEntity.ok(PubKeyResponse.builder()
                 .publicKey(pubKey)
-                .createdAt(ZonedDateTime.now())
+                .createdAt(123456789L)
                 .build());
     }
 
@@ -63,7 +63,7 @@ public class ConnectChallengeController {
 
         return ResponseEntity.ok(PubKeyResponse.builder()
                 .publicKey(pubKey)
-                .createdAt(ZonedDateTime.now())
+                .createdAt(123456789L)
                 .build());
     }
 
