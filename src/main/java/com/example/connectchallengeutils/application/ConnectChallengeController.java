@@ -59,7 +59,7 @@ public class ConnectChallengeController {
     @GetMapping(value = "keys", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<PubKeyResponse> keys() {
 
-        var pubKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwAKJoDYqzgh6Ffp3CxUjZlrxSD5gZZTNfKAJKGZvDpH6NEP4cMDwN6AYVRrEn7qSYlV93AqDYthl6GbNkVg7DJahuDSaHBwRgzLKQ/PpcBPY1GJMxp/x6j+TxkwfpSJgY/6P2jRH2DX3GQh1fhQc66eoTwWgDeObr4elH4rvzGd8eEanzqtICwWTEWI/YLilTdXEvVTpUjfhkGma/Tf4juep7NCw4/zSq5LNBrO7BEgd2Anwv62/fTFp90Nlo3o3o1erB9HJg4JajtCUrfq6hnwYFVRMdHycc0BiAblZc1yeiD6C1pfMwMcDB8o2UM1IPTLf7rRQzgiQQH0xZEWOjwIDAQAB"
+        String pubKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwAKJoDYqzgh6Ffp3CxUjZlrxSD5gZZTNfKAJKGZvDpH6NEP4cMDwN6AYVRrEn7qSYlV93AqDYthl6GbNkVg7DJahuDSaHBwRgzLKQ/PpcBPY1GJMxp/x6j+TxkwfpSJgY/6P2jRH2DX3GQh1fhQc66eoTwWgDeObr4elH4rvzGd8eEanzqtICwWTEWI/YLilTdXEvVTpUjfhkGma/Tf4juep7NCw4/zSq5LNBrO7BEgd2Anwv62/fTFp90Nlo3o3o1erB9HJg4JajtCUrfq6hnwYFVRMdHycc0BiAblZc1yeiD6C1pfMwMcDB8o2UM1IPTLf7rRQzgiQQH0xZEWOjwIDAQAB";
 
         return ResponseEntity.ok(PubKeyResponse.builder()
                 .publicKey(pubKey)
