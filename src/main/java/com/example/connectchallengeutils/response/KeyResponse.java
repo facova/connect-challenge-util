@@ -7,8 +7,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
-import java.time.ZonedDateTime;
-
 @Data
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -19,5 +17,5 @@ public class KeyResponse {
 
     String privateKey;
 
-    ZonedDateTime createdAt;
+    Long createdAt;
 }
